@@ -1,17 +1,22 @@
 ---
 import BaseHead from '~/components/base-head.astro'
+import Header from '~/components/header.astro'
 
-const { site_title, site_description } = Astro.props
+interface Props {
+  site_title: string
+}
+
+const { site_title } = Astro.props
 ---
 
 <!doctype html>
 <html lang='en'>
   <head>
-    <BaseHead title={site_title} description={site_description} />
+    <BaseHead title={site_title} } />
   </head>
-  <body class='scroll-smooth text-base'>
-    <!-- HEADER -->
-    <main class='space-y-24 py-32'>
+  <body class='m-auto flex min-h-screen flex-col scroll-smooth text-base'>
+    <Header />
+    <main class='flex-grow'>
       <slot />
     </main>
     <!-- FOOTER -->
