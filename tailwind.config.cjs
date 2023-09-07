@@ -31,6 +31,9 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        p500: 'hsl(var(--p500))',
+        p300: 'hsl(var(--p300))',
+        p100: 'hsl(var(--p100))',
       },
       borderRadius: {
         lg: 'var(--radius)',

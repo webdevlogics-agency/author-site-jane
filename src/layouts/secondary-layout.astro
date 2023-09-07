@@ -1,7 +1,5 @@
 ---
 import BaseHead from '~/components/base-head.astro'
-import Header from '~/components/header.astro'
-import Footer from '~/components/footer.astro'
 
 interface Props {
   site_title: string
@@ -16,10 +14,10 @@ const { site_title } = Astro.props
     <BaseHead title={site_title} } />
   </head>
   <body class='m-auto flex min-h-screen flex-col scroll-smooth text-base'>
-    <Header />
+    <!-- <Header /> -->
     <main class='flex-grow'>
       <slot />
     </main>
-    <Footer />
+    <!-- FOOTER -->
   </body>
 </html>
