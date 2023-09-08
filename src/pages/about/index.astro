@@ -1,11 +1,11 @@
 ---
-import SecondaryLayout from '~/layouts/secondary-layout.astro'
+import BaseLayout from '~/layouts/base-layout.astro'
 
 import { SITE_TITLE_ABOUT } from '~/consts'
 ---
 
-<SecondaryLayout site_title={SITE_TITLE_ABOUT}>
-  <section>
-    <div><p>Here we are</p></div>
+<BaseLayout site_title={SITE_TITLE_ABOUT}>
+  <section class='my-12 md:my-24'>
+    <div class='container m-auto max-w-7xl p-6'><p>Here we are</p></div>
   </section>
-</SecondaryLayout>
+</BaseLayout>
