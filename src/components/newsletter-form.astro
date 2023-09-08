@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string
+}
+const { title = 'NEWSLETTER' } = Astro.props
+---
+
+<div class='container m-auto max-w-3xl space-y-8 p-12'>
+  <h2 class='text-center text-5xl italic'>{title}</h2>
+  <p class='text-center'>Find out about tours and tour dates.</p>
+  <form action='#' class='space-y-8'>
+    <div>
+      <label for='email' class='mb-2 block text-center font-medium'
+        >EMAIL ADDRESS</label
+      >
+      <input
+        type='email'
+        id='email'
+        class='block h-14 w-full rounded-full border border-gray-300 bg-transparent text-center font-medium'
+        required
+      />
+    </div>
+    <div>
+      <label for='first-name' class='mb-2 block text-center font-medium'
+        >FIRST NAME</label
+      >
+      <input
+        type='text'
+        id='first-name'
+        class='block h-14 w-full rounded-full border border-gray-300 bg-transparent text-center font-medium'
+        required
+      />
+    </div>
+    <button
+      class='w-full rounded-full bg-orange-200 px-4 py-2 font-bold text-black hover:bg-sky-600 hover:text-foreground'
+    >
+      Subscribe
+    </button>
+  </form>
+</div>

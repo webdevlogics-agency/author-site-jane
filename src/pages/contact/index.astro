@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '~/layouts/base-layout.astro'
-
+import NewsletterForm from '~/components/newsletter-form.astro'
 import { SITE_TITLE_CONTACT } from '~/consts'
 ---
 
 <BaseLayout site_title={SITE_TITLE_CONTACT}>
-  <section class='my-12 md:my-24'>
-    <div>
-      <h1 class='text-3xl text-red-500'>CONTACT</h1>
-    </div>
+  <section id='contact' class='my-3 md:my-24'>
+    <NewsletterForm title='NEWSLETTER' />
   </section>
 </BaseLayout>
