@@ -1,0 +1,75 @@
+---
+import BaseLayout from '~/layouts/base-layout.astro'
+import ResponsiveImage from '~/components/responsive-image.astro'
+import { SITE_TITLE_BOOKS } from '~/consts'
+import {
+  book_good_1,
+  book_good_2,
+  book_good_3,
+  book_haunted_1,
+  book_haunted_2,
+} from '~/assets'
+---
+
+<BaseLayout site_title={SITE_TITLE_BOOKS}>
+  <section id='contact' class='my-3 md:my-28'>
+    <div class='container m-auto max-w-7xl p-6'>
+      <h1 class='text-3xl font-bold italic'>GOODVERSE</h1>
+      <div class='flex flex-col space-y-8 py-6'>
+        <h2 class='text-xl'>THE GOOD TIMES TRILOGY</h2>
+        <div class='grid grid-cols-1 gap-8 md:grid-cols-3'>
+          <div>
+            <ResponsiveImage
+              src={book_good_1}
+              alt='Good Book 1'
+              format='avif'
+              sizes={[200, 300]}
+            />
+            <p class='text-center'>GOOD BOOK 1</p>
+          </div>
+          <div>
+            <ResponsiveImage
+              src={book_good_2}
+              alt='Good Book 2'
+              format='avif'
+              sizes={[200, 300]}
+            />
+            <p class='text-center'>GOOD BOOK 2</p>
+          </div>
+          <div>
+            <ResponsiveImage
+              src={book_good_3}
+              alt='Good Book 3'
+              format='avif'
+              sizes={[200, 300]}
+            />
+            <p class='text-center'>GOOD BOOK 3</p>
+          </div>
+        </div>
+      </div>
+      <div class='my-12 flex flex-col space-y-8 py-12'>
+        <h2 class='text-xl'>THE HAUNTED SERIES</h2>
+        <div class='grid grid-cols-1 gap-8 md:grid-cols-3'>
+          <div>
+            <ResponsiveImage
+              src={book_haunted_1}
+              alt='Haunted Book 1'
+              format='avif'
+              sizes={[200, 300]}
+            />
+            <p class='text-center'>HAUNTED BOOK 1</p>
+          </div>
+          <div>
+            <ResponsiveImage
+              src={book_haunted_2}
+              alt='Haunted Book 2'
+              format='avif'
+              sizes={[200, 300]}
+            />
+            <p class='text-center'>HAUNTED BOOK 2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

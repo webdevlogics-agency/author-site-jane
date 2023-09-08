@@ -1,7 +1,6 @@
 ---
-import { Image } from 'astro:assets'
 import BaseLayout from '~/layouts/base-layout.astro'
-
+import ResponsiveImage from '~/components/responsive-image.astro'
 import { SITE_TITLE_ABOUT } from '~/consts'
 import { author_jane } from '~/assets'
 ---
@@ -13,10 +12,11 @@ import { author_jane } from '~/assets'
       <div
         class='grid w-full grid-cols-1 justify-center gap-8 md:grid-cols-2 md:gap-4'
       >
-        <Image
+        <ResponsiveImage
           src={author_jane}
-          alt='Image of Author Jane Goodreads'
-          class='aspect-auto h-[600px] w-auto'
+          sizes={[400]}
+          alt='Jane Goodreads Image'
+          format='avif'
         />
         <div class='flex flex-col gap-4'>
           <h2 class='text-2xl uppercase'>Jane Goodreads</h2>

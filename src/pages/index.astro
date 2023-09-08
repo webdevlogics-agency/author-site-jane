@@ -1,18 +1,31 @@
 ---
-import { Image } from 'astro:assets'
+import { getImage } from 'astro:assets'
 
 import BaseLayout from '~/layouts/base-layout.astro'
 import NewsletterForm from '~/components/newsletter-form.astro'
 import GridContainer from '~/components/ui/grid-container.astro'
 
-import { goodverse, new_release, haunting_good_times } from '~/assets'
+import ResponsiveImage from '~/components/responsive-image.astro'
+
+import {
+  goodverse,
+  book_good_3,
+  book_haunted_2,
+  main_background,
+} from '~/assets'
 import { SITE_TITLE_HOME } from '~/consts'
+
+const optimizedBgImage = await getImage({
+  src: main_background,
+  format: 'avif',
+})
 ---
 
 <BaseLayout site_title={SITE_TITLE_HOME}>
   <section id='hero-main'>
     <div
-      class='relative h-[600px] bg-hero-pattern bg-cover bg-center bg-no-repeat'
+      class='relative h-[600px] bg-cover bg-center bg-no-repeat'
+      style=`background-image: url(${optimizedBgImage.src})`
     >
       <div
         class='flex h-[600px] items-center justify-center bg-black bg-opacity-50'
@@ -22,10 +35,11 @@ import { SITE_TITLE_HOME } from '~/consts'
           class='container m-auto flex h-full max-w-7xl items-center justify-center'
         >
           <div class='flex flex-col items-center gap-8 p-6 md:flex-row'>
-            <Image
-              src={haunting_good_times}
+            <ResponsiveImage
+              src={book_haunted_2}
               alt='New Release Book'
-              class='aspect-auto h-auto w-52 md:w-64'
+              format='avif'
+              sizes={[250]}
             />
             <div class='flex w-full flex-col items-center gap-4'>
               <p class='gradient-text text-2xl font-bold'>
@@ -35,8 +49,9 @@ import { SITE_TITLE_HOME } from '~/consts'
                 Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
                 sint cillum sint consectetur cupidatat.
               </p>
+
               <button
-                class='w-32 rounded-full bg-orange-200 px-4 py-2 font-bold text-black hover:bg-sky-600 hover:text-foreground'
+                class='w-32 rounded-full bg-orange-200 px-4 py-2 font-bold text-black hover:bg-primary hover:text-foreground'
               >
                 Buy Now
               </button>
@@ -48,25 +63,28 @@ import { SITE_TITLE_HOME } from '~/consts'
   </section>
 
   <section id='intro-goodverse' class='my-24'>
-    <div class='container m-auto flex max-w-7xl flex-col items-center p-6'>
+    <div
+      class='container m-auto flex max-w-7xl flex-col items-center space-y-12 p-6'
+    >
       <h2 class='text-5xl italic'>EXPLORE THE GOODVERSE</h2>
-      <Image
+      <ResponsiveImage
         src={goodverse}
         alt='Image of the Goodverse'
-        class='aspect-auto h-auto w-full max-w-5xl'
+        sizes={[1080]}
       />
     </div>
   </section>
 
   <section id='intro-new-release'>
-    <div class='container m-auto max-w-7xl space-y-28 p-12'>
+    <div class='container m-auto max-w-7xl space-y-12 p-12'>
       <h2 class='text-center text-5xl italic'>New Releases</h2>
       <GridContainer>
         <Fragment slot='section-1'>
-          <Image
-            src={new_release}
+          <ResponsiveImage
+            src={book_good_3}
             alt='New Release Book'
-            class='aspect-auto h-auto max-w-xl'
+            format='avif'
+            sizes={[576]}
           />
         </Fragment>
         <Fragment slot='section-2'>
@@ -91,7 +109,7 @@ import { SITE_TITLE_HOME } from '~/consts'
           </p>
 
           <button
-            class='w-32 rounded-full bg-orange-200 px-4 py-2 font-bold text-black hover:bg-sky-600 hover:text-foreground'
+            class='w-32 rounded-full bg-orange-200 px-4 py-2 font-bold text-black hover:bg-primary hover:text-foreground'
           >
             Buy Now
           </button>
